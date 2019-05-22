@@ -1,0 +1,7 @@
+type: embedded
+apps:
+  - path: hello_world
+    name: hello_world
+    language: elixir
+    env: []
+
