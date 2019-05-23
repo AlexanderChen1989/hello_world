@@ -6,8 +6,7 @@ GIT_LOG=$(shell git log `git describe --tags --abbrev=0`..HEAD --pretty="tformat
 PLATFORM_VERSION=$(strip $(shell cat platform/version))
 SUB_APPS_VERSIONS=platform: $(PLATFORM_VERSION)
 RELEASE_BODY=release on branch __$(GIT_BRANCH)__\n\n$(GIT_LOG)\n\n$(SUB_APPS_VERSIONS)
-ifeq ($(app),)
-else
+ifneq ($(app),)
 	RELEASE_BODY+=\n\napps=$(app)
 endif
 RELEASE_DATA='{"tag_name": "$(RELEASE_VERSION)", "name": "$(RELEASE_VERSION)", "target_commitish": "master", "body": "$(RELEASE_BODY)"}'
