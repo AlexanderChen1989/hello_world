@@ -4,4 +4,8 @@ apps:
     name: hello_world
     language: elixir
     env: []
+  - path: nice
+    name: nice
+    language: elixir
+    env: []
 
